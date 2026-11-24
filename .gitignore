@@ -1,0 +1,4 @@
+bin/
+obj/
+expenses.json
+expenses.json.tmp
