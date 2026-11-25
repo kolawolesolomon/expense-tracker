@@ -11,11 +11,4 @@ jobs:
         with:
           dotnet-version: '8.0.x'
       - run: dotnet build
-      - shell: bash
-        run: |
-          export EXPENSE_FILE="$RUNNER_TEMP/expenses.json"
-          dotnet run --no-build -- add 12.50 Food Lunch
-          dotnet run --no-build -- add 7.50 Food Snack
-          dotnet run --no-build -- list | grep -F Lunch
-          dotnet run --no-build -- summary | grep -F 'Total: 20.00'
-          if dotnet run --no-build -- add -1 Food Invalid; then exit 1; fi
+      - run: bash smoke-test.sh
